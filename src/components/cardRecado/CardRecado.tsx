@@ -28,7 +28,7 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
     };
 
     const updateRecado = () => {
-        if (!newDescricao && !newTitulo) {
+        if (!newDescricao || !newTitulo || !newDate) {
             alertaRecados();
             return
         }
