@@ -41,7 +41,7 @@ export const HeaderRecados = () => {
         const userLogado = loginData.dados.at(0);
 
         if (userLogado) {
-            if (!descricao && !titulo) {
+            if (!descricao || !titulo || !data) {
                 meuAlerta();
                 return;
             }
@@ -136,7 +136,7 @@ export const HeaderRecados = () => {
                 <DialogTitle>Novo Recado</DialogTitle>
 
                 {alerta && <MeuAlert titulo='Erro ao criar recado'
-                    mensagem='Você deve digitar a tarefa e descrição' severity='error' />}
+                    mensagem='Você deve preencher todos os campos' severity='error' />}
 
                 <DialogContent>
                     <TextField

@@ -153,7 +153,7 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
                 <DialogTitle>Editar Recado</DialogTitle>
 
                 {alerta && <MeuAlert titulo='Erro ao editar recado'
-                    mensagem='Você deve digitar o titulo e descrição' severity='error'
+                    mensagem='Você deve preencher todos os campos' severity='error'
                 />}
 
                 <DialogContent>
