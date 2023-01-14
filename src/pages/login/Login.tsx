@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/modules/hooks';
 import { MeuAlert } from '../../components/meuAlert/MeuAlert';
 import { logarUsuarioThunk } from '../../store/modules/userSlice/UserSlice';
-import storage from 'redux-persist/lib/storage';
 import { IResposta } from '../../interfaces/iResposta/iResposta';
 
 const MeuContainer = styled(Grid)(() => ({
