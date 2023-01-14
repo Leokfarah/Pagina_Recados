@@ -34,7 +34,7 @@ export const PageRecados = () => {
         }
     }, []);
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         if (loginData) {
             getRecadosAtivos();
         }

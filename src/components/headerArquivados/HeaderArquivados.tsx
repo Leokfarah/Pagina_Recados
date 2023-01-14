@@ -13,7 +13,7 @@ export const HeaderArquivados = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    React.useEffect(() => {
+    useEnhancedEffect(() => {
         const userId = loginData.dados.at(0);
 
         const dadosBusca = {

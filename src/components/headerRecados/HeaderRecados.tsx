@@ -25,7 +25,7 @@ export const HeaderRecados = () => {
     const dispatch = useAppDispatch();
     const respostaAddRecado: IResposta = useAppSelector(state => state.recados);
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         const userId = loginData.dados.at(0);
 
         const dadosBusca = {

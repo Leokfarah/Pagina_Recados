@@ -34,7 +34,7 @@ export const PageArquivados = () => {
         }
     }, []);
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         if (loginData) {
             getRecadosArquivados();
         }
