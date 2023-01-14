@@ -5,14 +5,15 @@ import storage from 'redux-persist/lib/storage';
 import useEnhancedEffect from '@mui/material/utils/useEnhancedEffect';
 import { useAppDispatch, useAppSelector } from '../../store/modules/hooks';
 import { getRecadosArquivadosNomesThunk } from '../../store/modules/recadosSlice/RecadosSlice';
+import { IResposta } from '../../interfaces/iResposta/iResposta';
 
 export const HeaderArquivados = () => {
     const [buscarArquivados, setBuscarArquivados] = React.useState('');
-    const loginData = useAppSelector((state) => state.usuarios);
+    const loginData: IResposta = useAppSelector((state) => state.usuarios);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    useEnhancedEffect(() => {
+    React.useLayoutEffect(() => {
         const userId = loginData.dados.at(0);
 
         const dadosBusca = {

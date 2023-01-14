@@ -11,6 +11,7 @@ import { criarNovoRecadoThunk, getRecadosNomesThunk } from '../../store/modules/
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
 import useEnhancedEffect from '@mui/material/utils/useEnhancedEffect';
 import storage from 'redux-persist/lib/storage';
+import { IResposta } from '../../interfaces/iResposta/iResposta';
 
 export const HeaderRecados = () => {
     const navigate = useNavigate();
@@ -20,11 +21,11 @@ export const HeaderRecados = () => {
     const [data, setData] = React.useState('');
     const [alerta, setAlerta] = React.useState(false);
     const [buscar, setBuscar] = React.useState('');
-    const loginData = useAppSelector((state) => state.usuarios);
+    const loginData: IResposta = useAppSelector((state) => state.usuarios);
     const dispatch = useAppDispatch();
-    const respostaAddRecado = useAppSelector(state => state.recados);
+    const respostaAddRecado: IResposta = useAppSelector(state => state.recados);
 
-    useEnhancedEffect(() => {
+    React.useLayoutEffect(() => {
         const userId = loginData.dados.at(0);
 
         const dadosBusca = {
