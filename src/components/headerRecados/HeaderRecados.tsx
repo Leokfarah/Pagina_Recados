@@ -9,7 +9,6 @@ import { MeuAlert } from '../meuAlert/MeuAlert';
 import { IRecados } from '../../interfaces/iRecados/iRecados';
 import { criarNovoRecadoThunk, getRecadosNomesThunk } from '../../store/modules/recadosSlice/RecadosSlice';
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
-import useEnhancedEffect from '@mui/material/utils/useEnhancedEffect';
 import storage from 'redux-persist/lib/storage';
 import { IResposta } from '../../interfaces/iResposta/iResposta';
 
@@ -54,7 +53,6 @@ export const HeaderRecados = () => {
             }
 
             dispatch(criarNovoRecadoThunk(novoRecado));
-            console.log(respostaAddRecado);
             limparEstados();
             handleClose();
         }

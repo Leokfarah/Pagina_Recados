@@ -40,9 +40,6 @@ export const PageArquivados = () => {
         }
     }, [dispatch]);
 
-    console.log(recadosArquivados);
-    console.log(recadosUsuario);
-
     function getRecadosArquivados() {
         const idUsuario = loginData.dados.at(0);
         dispatch(getRecadosArquivadosThunk(idUsuario));
