@@ -13,7 +13,7 @@ export class Recados {
 
     async getAllRecadosAtivos(userID: string) {
         try {
-            const resposta = await api.get(`/recados/ativos/${userID}`);
+            const resposta = await api.get(`/recados/${userID}/arquivado?arquivado=false`);
             return resposta.data;
         } catch (error: any) {
             return error.response.data;
