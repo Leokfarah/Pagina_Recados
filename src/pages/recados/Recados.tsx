@@ -56,7 +56,7 @@ export const PageRecados = () => {
                 <Grid container spacing={3} >
                     {recadosUsuario && recadosUsuario.map((recado: IRecados) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={recado.idRecado}>
-                            <CardRecado textoArq='Arquivar' id={recado.idRecado} proprietario={recado.idUsuario}
+                            <CardRecado textoArq='Arquivar' idRecado={recado.idRecado} idUsuario={recado.idUsuario}
                                 titulo={recado.titulo} descricao={recado.descricao}
                                 data={recado.data} key={recado.idRecado} onClickArq={'arquivarRecado'} />
                         </Grid>
