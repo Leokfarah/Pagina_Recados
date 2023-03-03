@@ -22,13 +22,12 @@ export const HeaderRecados = () => {
     const [buscar, setBuscar] = React.useState('');
     const loginData: IResposta = useAppSelector((state) => state.usuarios);
     const dispatch = useAppDispatch();
-    const respostaAddRecado: IResposta = useAppSelector(state => state.recados);
 
     React.useLayoutEffect(() => {
-        const userId = loginData.dados.at(0);
+        const idUsuario = loginData.dados;
 
         const dadosBusca = {
-            userID: userId,
+            idUsuario: idUsuario,
             titulo: buscar
         }
 
@@ -37,7 +36,7 @@ export const HeaderRecados = () => {
     }, [buscar])
 
     const addRecado = () => {
-        const userLogado = loginData.dados.at(0);
+        const userLogado = loginData.dados;
 
         if (userLogado) {
             if (!descricao || !titulo || !data) {
@@ -46,7 +45,7 @@ export const HeaderRecados = () => {
             }
 
             const novoRecado: IRecados = {
-                proprietario: userLogado,
+                idUsuario: userLogado,
                 titulo: titulo,
                 descricao: descricao,
                 data: data,
@@ -108,8 +107,8 @@ export const HeaderRecados = () => {
                         </Grid>
 
                         <Grid item xs={12} md={5} display='flex' alignItems='center'>
-                            <TextField type='text' label='&#128269;Pesquisar por nome'
-                                placeholder='Titulo' value={buscar} color='warning'
+                            <TextField type='text' label='&#128269;Pesquisar por Título'
+                                placeholder='Título' value={buscar} color='warning'
                                 size='small' variant='outlined'
                                 sx={{
                                     flexGrow: 1, bgcolor: '#fafafa50',

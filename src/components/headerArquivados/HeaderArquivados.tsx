@@ -14,10 +14,10 @@ export const HeaderArquivados = () => {
     const navigate = useNavigate();
 
     useEnhancedEffect(() => {
-        const userId = loginData.dados.at(0);
+        const idUsuario = loginData.dados;
 
         const dadosBusca = {
-            userID: userId,
+            idUsuario: idUsuario,
             titulo: buscarArquivados
         }
 
@@ -47,8 +47,8 @@ export const HeaderArquivados = () => {
                         </Grid>
 
                         <Grid item xs={12} md={5} display='flex' alignItems='center'>
-                            <TextField type='text' label='&#128269;Pesquisar arquivados por nome'
-                                placeholder='Titulo' value={buscarArquivados} color='warning'
+                            <TextField type='text' label='&#128269;Pesquisar arquivados por Título'
+                                placeholder='Título' value={buscarArquivados} color='warning'
                                 size='small' variant='outlined'
                                 sx={{
                                     flexGrow: 1, bgcolor: '#fafafa50',

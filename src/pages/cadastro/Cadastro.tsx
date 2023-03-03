@@ -14,8 +14,6 @@ const MeuContainer = styled(Grid)(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100vw',
-    height: '100vh',
     backgroundImage: 'linear-gradient(to bottom right, black, #340511)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -41,33 +39,6 @@ export const Cadastro = () => {
     const [tituloAlerta, setTituloAlerta] = useState<string>('');
     const [mensagemAlerta, setMensagemAlerta] = useState<string>('');
     const navigate = useNavigate();
-    // const dispatch = useAppDispatch();
-    // const data = useAppSelector((state) => state.usuarios);
-    // const primeiraExecucao = useRef(true);
-
-    // useEffect(() => {
-    //     // if (primeiraExecucao.current) {
-    //     //     primeiraExecucao.current = false;
-    //     //     return;
-    //     // }
-
-    //     if (data.sucesso === false) {
-    //         exibirErro('Credenciais inválidas');
-    //         limparCampos();
-    //         return;
-    //     }
-
-    //     limparCampos();
-    //     setSeveridadeAlerta('success');
-    //     setTituloAlerta('Usuário cadastrado com sucesso');
-    //     setMensagemAlerta(`Seja bem vindo a página de recados`);
-    //     AlertaCadastro();
-
-    //     setTimeout(() => {
-    //         navegaLogin();
-    //     }, 3200);
-
-    // }, [dispatch, data]);
 
 
     const verificaCampos = (): boolean => {
@@ -123,7 +94,6 @@ export const Cadastro = () => {
             navegaLogin();
         }, 3200);
 
-        // dispatch(cadastrarUsuarioThunk(novoUsuario));
     }
 
     const exibirErro = (mensagemDeErro: string) => {
@@ -157,7 +127,7 @@ export const Cadastro = () => {
                 mensagem={mensagemAlerta} severity={severidadeAlerta}
             />}
 
-            <MeuContainer container>
+            <MeuContainer container minHeight={'100vh'}>
                 <Grid item xs={8} md={4}>
                     <MeuPaper elevation={24}>
                         <MeuTitulo

@@ -11,18 +11,18 @@ export class Recados {
         }
     };
 
-    async getAllRecadosAtivos(userID: string) {
+    async getAllRecadosAtivos(idUsuario: string) {
         try {
-            const resposta = await api.get(`/recados/${userID}/arquivado?arquivado=false`);
+            const resposta = await api.get(`/recados/ativos/${idUsuario}`);
             return resposta.data;
         } catch (error: any) {
             return error.response.data;
         }
     };
 
-    async getRecadosArquivados(userID: string) {
+    async getRecadosArquivados(idUsuario: string) {
         try {
-            const resposta = await api.get(`/recados/${userID}/arquivado?arquivado=true`);
+            const resposta = await api.get(`/recados/${idUsuario}/arquivado?arquivado=true`);
             return resposta.data;
         } catch (error: any) {
             return error.response.data;
@@ -30,11 +30,11 @@ export class Recados {
     };
 
     async getRecadosPorNome(objeto: any) {
-        const { userID, titulo } = objeto;
+        const { idUsuario, titulo } = objeto;
 
         if (!titulo) {
             try {
-                const resposta = await api.get(`/recados/ativos/${userID}`);
+                const resposta = await api.get(`/recados/ativos/${idUsuario}`);
                 return resposta.data;
             } catch (error: any) {
                 return error.response.data;
@@ -42,7 +42,7 @@ export class Recados {
         }
         try {
             const resposta = await api
-                .get(`/recados/${userID}/buscar?titulo=${titulo}`)
+                .get(`/recados/${idUsuario}/buscar?titulo=${titulo}`)
             return resposta.data;
         } catch (error: any) {
             return error.response.data;
@@ -50,11 +50,11 @@ export class Recados {
     };
 
     async getRecadosArquivadosPorNome(objeto: any) {
-        const { userID, titulo } = objeto;
+        const { idUsuario, titulo } = objeto;
 
         if (!titulo) {
             try {
-                const resposta = await api.get(`/recados/${userID}/arquivado?arquivado=true`);
+                const resposta = await api.get(`/recados/${idUsuario}/arquivado?arquivado=true`);
                 return resposta.data;
             } catch (error: any) {
                 return error.response.data;
@@ -62,7 +62,7 @@ export class Recados {
         }
         try {
             const resposta = await api
-                .get(`/recados/arquivados/${userID}/buscar?titulo=${titulo}`)
+                .get(`/recados/arquivados/${idUsuario}/buscar?titulo=${titulo}`)
             return resposta.data;
         } catch (error: any) {
             return error.response.data;

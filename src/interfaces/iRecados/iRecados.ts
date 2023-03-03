@@ -1,6 +1,6 @@
 export interface IRecados {
-    id?: string,
-    proprietario: string;
+    idRecado?: string,
+    idUsuario: string;
     titulo: string,
     descricao: string,
     data: string,

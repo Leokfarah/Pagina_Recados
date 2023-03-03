@@ -13,9 +13,8 @@ const MeuContainer = styled(Grid)(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'flex-start',
-    width: '100vw',
-    height: '100vh',
     backgroundImage: 'linear-gradient(to top, black, #340511)',
+    backgroundRepeat: 'repeat-y',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 }));
@@ -40,8 +39,8 @@ export const PageArquivados = () => {
         }
     }, [dispatch]);
 
-    function getRecadosArquivados() {
-        const idUsuario = loginData.dados.at(0);
+    async function getRecadosArquivados() {
+        const idUsuario = await loginData.dados;
         dispatch(getRecadosArquivadosThunk(idUsuario));
     }
 
@@ -50,16 +49,16 @@ export const PageArquivados = () => {
     }
 
     return (
-        <MeuContainer container>
+        <MeuContainer container minHeight={'100vh'}>
             <HeaderArquivados />
 
             <Grid item xs={12} md={11} sx={{ mt: 3 }}>
                 <Grid container spacing={3} >
                     {recadosUsuario && recadosUsuario.map((recado: IRecados) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={recado.id}>
-                            <CardRecado textoArq='Desarquivar' id={recado.id} proprietario={recado.proprietario}
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={recado.idRecado}>
+                            <CardRecado textoArq='Desarquivar' id={recado.idRecado} proprietario={recado.idUsuario}
                                 titulo={recado.titulo} descricao={recado.descricao}
-                                data={recado.data} key={recado.id} onClickArq={'desarquivarRecado'} />
+                                data={recado.data} key={recado.idRecado} onClickArq={'desarquivarRecado'} />
                         </Grid>
                     ))}
                 </Grid>

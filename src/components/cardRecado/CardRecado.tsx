@@ -8,7 +8,7 @@ import { useAppDispatch } from '../../store/modules/hooks';
 import { MeuAlert } from '../meuAlert/MeuAlert';
 import { desarquivarRecadoThunk, editarRecadoThunk } from '../../store/modules/recadosSlice/RecadosSlice';
 
-export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq, onClickArq }: any) => {
+export const CardRecado = ({ idRecado, idUsuario, titulo, descricao, data, textoArq, onClickArq }: any) => {
     const [open, setOpen] = React.useState(false);
     const [newTitulo, setNewTitulo] = React.useState('');
     const [newDescricao, setNewDescricao] = React.useState('');
@@ -34,11 +34,11 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
         }
 
         dispatch(editarRecadoThunk({
-            proprietario: proprietario,
+            idUsuario: idUsuario,
             titulo: newTitulo,
             descricao: newDescricao,
             data: newDate,
-            id: id,
+            idRecado: idRecado,
             deletado: false,
             arquivado: false,
         }));
@@ -47,11 +47,11 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
 
     function deleteRecado() {
         dispatch(editarRecadoThunk({
-            proprietario: proprietario,
+            idUsuario: idUsuario,
             titulo: titulo,
             descricao: descricao,
             data: data,
-            id: id,
+            idRecado: idRecado,
             deletado: true,
             arquivado: false,
         }));
@@ -59,11 +59,11 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
 
     function arquivarRecado() {
         dispatch(editarRecadoThunk({
-            proprietario: proprietario,
+            idUsuario: idUsuario,
             titulo: titulo,
             descricao: descricao,
             data: data,
-            id: id,
+            idRecado: idRecado,
             deletado: false,
             arquivado: true,
         }));
@@ -71,11 +71,11 @@ export const CardRecado = ({ id, proprietario, titulo, descricao, data, textoArq
 
     function desarquivarRecado() {
         dispatch(desarquivarRecadoThunk({
-            proprietario: proprietario,
+            idUsuario: idUsuario,
             titulo: titulo,
             descricao: descricao,
             data: data,
-            id: id,
+            idRecado: idRecado,
             deletado: false,
             arquivado: false,
         }));

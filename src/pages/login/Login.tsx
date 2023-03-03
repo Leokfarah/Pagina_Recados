@@ -14,8 +14,6 @@ const MeuContainer = styled(Grid)(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100vw',
-    height: '100vh',
     backgroundImage: `linear-gradient(to bottom right, #340511, black)`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -114,7 +112,7 @@ export const Login = () => {
                 severity='error'
             />}
 
-            <MeuContainer container>
+            <MeuContainer container minHeight={'100vh'}>
                 <Grid item xs={8} md={4}>
                     <MeuPaper elevation={24}>
                         <MeuTitulo
