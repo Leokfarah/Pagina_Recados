@@ -4,7 +4,7 @@ import { api } from "../../api/api";
 export class Usuario {
     async cadastrarUsuario(objeto: IUser) {
         try {
-            const resposta = await api.post('/cadastro', objeto);
+            const resposta = await api.post('/usuarios/cadastro', objeto);
             return resposta.data;
         } catch (error: any) {
             return error.response.data;
@@ -13,7 +13,7 @@ export class Usuario {
 
     async logarUsuario(objeto: IUser) {
         try {
-            const resposta = await api.post('/usuario', objeto);
+            const resposta = await api.post('/usuarios/login', objeto);
             return resposta.data;
         } catch (error: any) {
             return error.response.data;

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const online = 'https://api-recados2.vercel.app/';
-// const local = 'http://localhost:8080';
+const online = 'https://arq-api-recados.vercel.app/';
+// const local = 'http://localhost:8081';
 
 export const api = axios.create({
     baseURL: online,
